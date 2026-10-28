@@ -26,11 +26,7 @@
             <div class="topnav-left">
                 <a href="{{ Route::has('pelanggan.dashboard') ? route('pelanggan.dashboard') : '#' }}" class="topnav-brand">
                     <div class="topnav-brand-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" fill="none"/>
-                            <path d="M12 6C12 6 8 10 8 13C8 15.2 9.8 17 12 17C14.2 17 16 15.2 16 13C16 10 12 6 12 6Z" fill="white" opacity="0.6"/>
-                            <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5" fill="none"/>
-                        </svg>
+                        <img src="{{ asset('image/logoutel.png') }}" alt="TERA Logo" class="topnav-brand-logo">
                     </div>
                     <div class="topnav-brand-text">
                         <span class="brand-title">TERA</span>

@@ -33,7 +33,7 @@
                     <div class="metric-value">{{ number_format($totalUnit) }}</div>
                 </div>
                 <div>
-                    <span class="metric-badge blue">+12%</span>
+                    <!-- <span class="metric-badge blue">+12%</span> -->
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                     <div class="metric-value">{{ number_format($unitTersedia) }}</div>
                 </div>
                 <div>
-                    <span class="metric-badge green">{{ $persenTersedia }}%</span>
+                    <!-- <span class="metric-badge green">{{ $persenTersedia }}%</span> -->
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                     <div class="metric-value">{{ number_format($unitDisewa) }}</div>
                 </div>
                 <div>
-                    <span class="metric-badge red">{{ $persenDisewa }}%</span>
+                    <!-- <span class="metric-badge red">{{ $persenDisewa }}%</span> -->
                 </div>
             </div>
         </div>

@@ -1,0 +1,2337 @@
+/**
+ * TERA Client Portal Stylesheet
+ * Radio Telecommunication Equipment Rental Portal
+ * Top Navbar Layout with Premium Design
+ */
+
+:root {
+    --tera-client-navy: #0a1628;
+    --tera-client-navy-light: #0f2042;
+    --tera-client-primary: #2563eb;
+    --tera-client-primary-hover: #1d4ed8;
+    --tera-client-primary-light: #eff6ff;
+    --tera-client-bg: #f8fafc;
+    --tera-client-card: #ffffff;
+    --tera-client-text: #0f172a;
+    --tera-client-muted: #64748b;
+    --tera-client-border: #f1f5f9;
+    --tera-client-border-dark: #e2e8f0;
+    --tera-topnav-height: 64px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--tera-client-bg);
+    color: var(--tera-client-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   TOP NAVIGATION BAR
+   ========================================= */
+.client-topnav {
+    background: linear-gradient(135deg, #0a1628 0%, #122040 50%, #1a3068 100%);
+    min-height: var(--tera-topnav-height);
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.topnav-inner {
+    display: flex;
+    align-items: center;
+    min-height: var(--tera-topnav-height);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+/* Left group: brand + nav links in one row */
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Brand */
+.topnav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+}
+
+.topnav-brand-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topnav-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Nav Links */
+.topnav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 1rem;
+}
+
+.topnav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.topnav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.topnav-link.active {
+    color: #ffffff;
+    background: var(--tera-client-primary);
+    font-weight: 600;
+}
+
+/* Search */
+.topnav-search {
+    position: relative;
+    flex: 1 1 200px;
+    max-width: 340px;
+    min-width: 0;
+}
+
+.topnav-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+}
+
+.topnav-search input {
+    width: 100%;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 0 1rem 0 2.5rem;
+    font-size: 0.82rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.topnav-search input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.topnav-search input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Right Actions */
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: auto;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+}
+
+.topnav-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.topnav-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.topnav-icon-btn .notif-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid var(--tera-client-navy);
+}
+
+.topnav-icon-btn.logout-icon {
+    margin-left: 0.25rem;
+}
+
+/* User Badge */
+.topnav-user {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+    position: relative;
+}
+
+.topnav-user:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.topnav-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+.topnav-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.topnav-user-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.topnav-user-role {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.topnav-user-chevron {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--tera-client-border);
+    min-width: 200px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+    z-index: 1100;
+}
+
+.user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+    color: var(--tera-client-text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.user-dropdown-item:hover {
+    background: var(--tera-client-bg);
+}
+
+.user-dropdown-item.logout {
+    color: #ef4444;
+}
+
+.user-dropdown-item.logout:hover {
+    background: #fef2f2;
+}
+
+.user-dropdown-divider {
+    height: 1px;
+    background: var(--tera-client-border);
+    margin: 0.35rem 0;
+}
+
+/* Mobile Toggle */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.topnav-mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 1rem;
+    background: var(--tera-client-navy);
+    gap: 0.25rem;
+}
+
+.topnav-mobile-menu.show {
+    display: flex;
+}
+
+/* =========================================
+   MAIN CONTENT AREA
+   ========================================= */
+.client-main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    min-height: calc(100vh - var(--tera-topnav-height) - 60px);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.client-footer {
+    background: #ffffff;
+    border-top: 1px solid var(--tera-client-border);
+    padding: 1.25rem 0;
+}
+
+.footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    font-size: 0.8rem;
+    color: var(--tera-client-muted);
+}
+
+.footer-right {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-right a {
+    font-size: 0.8rem;
+    color: var(--tera-client-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.footer-right a:hover {
+    color: var(--tera-client-text);
+}
+
+/* =========================================
+   POPUP / MODAL SYSTEM
+   ========================================= */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(4px);
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+    width: 480px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow: hidden;
+    z-index: 2100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+}
+
+.popup-modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--tera-client-border);
+}
+
+.popup-header h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.popup-header h3 i {
+    color: var(--tera-client-primary);
+}
+
+.popup-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: var(--tera-client-bg);
+    color: var(--tera-client-muted);
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.popup-close:hover {
+    background: var(--tera-client-border-dark);
+    color: var(--tera-client-text);
+}
+
+.popup-body {
+    padding: 1.25rem 1.5rem;
+    overflow-y: auto;
+    max-height: calc(80vh - 70px);
+}
+
+/* Notification Items */
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.85rem;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+    cursor: pointer;
+}
+
+.notif-item:hover {
+    background: var(--tera-client-bg);
+}
+
+.notif-item.unread {
+    background: #f0f7ff;
+}
+
+.notif-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.notif-icon.green { background: #dcfce7; color: #16a34a; }
+.notif-icon.blue { background: #dbeafe; color: #2563eb; }
+.notif-icon.orange { background: #fed7aa; color: #ea580c; }
+.notif-icon.slate { background: #e2e8f0; color: #475569; }
+
+.notif-content { flex: 1; }
+
+.notif-text {
+    font-size: 0.85rem;
+    color: var(--tera-client-text);
+    margin: 0 0 0.2rem 0;
+    line-height: 1.45;
+}
+
+.notif-time {
+    font-size: 0.72rem;
+    color: var(--tera-client-muted);
+}
+
+/* Help Items */
+.help-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.85rem;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+    cursor: pointer;
+}
+
+.help-item:hover {
+    background: var(--tera-client-bg);
+}
+
+.help-item > i {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--tera-client-primary-light);
+    color: var(--tera-client-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.help-item h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--tera-client-text);
+    margin-bottom: 0.15rem;
+}
+
+.help-item p {
+    font-size: 0.78rem;
+    color: var(--tera-client-muted);
+    margin: 0;
+}
+
+/* Settings */
+.settings-group {
+    margin-bottom: 1.25rem;
+}
+
+.settings-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--tera-client-text);
+    margin-bottom: 0.45rem;
+}
+
+.settings-select {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--tera-client-border-dark);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    background: #fff;
+    color: var(--tera-client-text);
+    transition: border-color 0.15s ease;
+}
+
+.settings-select:focus {
+    border-color: var(--tera-client-primary);
+}
+
+.settings-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.82rem;
+    color: var(--tera-client-muted);
+}
+
+.settings-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 22px;
+    background: #cbd5e1;
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.settings-toggle input[type="checkbox"]:checked + .toggle-switch {
+    background: var(--tera-client-primary);
+}
+
+.settings-toggle input[type="checkbox"]:checked + .toggle-switch::after {
+    transform: translateX(18px);
+}
+
+/* =========================================
+   DASHBOARD PAGE
+   ========================================= */
+
+/* Page Header with breadcrumb */
+.page-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--tera-client-primary);
+    margin-bottom: 0.5rem;
+}
+
+.page-breadcrumb .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.75rem;
+}
+
+.page-header-text h2 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.3px;
+}
+
+.page-header-text p {
+    color: var(--tera-client-muted);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.page-header-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Welcome Banner */
+.client-welcome-banner {
+    background: linear-gradient(135deg, #0a1628 0%, #122040 40%, #1a3068 100%);
+    border-radius: 18px;
+    padding: 2.75rem 3rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px -4px rgba(10, 22, 40, 0.25);
+}
+
+.client-welcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    padding: 0.35rem 1rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.25rem;
+}
+
+.client-welcome-badge .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+.client-welcome-banner h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.client-welcome-banner p {
+    font-size: 0.925rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: 0;
+}
+
+.client-welcome-banner p strong {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.client-welcome-circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.client-welcome-circle::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Quick Action Cards (3 columns) */
+.quick-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.quick-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--tera-client-border);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+.quick-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #e2e8f0;
+}
+
+.quick-card-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+}
+
+.quick-card-icon-box.blue {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.quick-card-icon-box.orange {
+    background-color: #fff7ed;
+    color: #ea580c;
+}
+
+.quick-card-icon-box.slate {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.quick-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+}
+
+.quick-card-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
+}
+
+.quick-card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--tera-client-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: auto;
+    transition: gap 0.2s ease;
+}
+
+.quick-card:hover .quick-card-link {
+    gap: 0.55rem;
+}
+
+/* Bottom Split Section */
+.dashboard-split-section {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Rentals Section */
+.rentals-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.rentals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0 0.25rem;
+}
+
+.rentals-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rentals-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.rentals-badge-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+}
+
+.rentals-header a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--tera-client-primary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.rentals-header a:hover {
+    color: var(--tera-client-primary-hover);
+}
+
+/* Table Card */
+.rentals-table-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--tera-client-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+}
+
+.rentals-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.rentals-table thead tr {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.rentals-table th {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+}
+
+.rentals-table tbody tr {
+    border-bottom: 1px solid #f8fafc;
+    transition: background-color 0.15s ease;
+}
+
+.rentals-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.rentals-table tbody tr:hover {
+    background-color: #fbfcfe;
+}
+
+.rentals-table td {
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    vertical-align: middle;
+}
+
+.td-id-unit {
+    font-weight: 600;
+    color: var(--tera-client-primary);
+    white-space: nowrap;
+}
+
+.td-id-unit a {
+    color: var(--tera-client-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.td-id-unit a:hover {
+    text-decoration: underline;
+}
+
+.unit-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.unit-icon-box {
+    width: 38px;
+    height: 38px;
+    background-color: #f1f5f9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.unit-name-text {
+    font-weight: 600;
+    color: #0f172a;
+    font-size: 0.85rem;
+}
+
+.unit-sub-text {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 1px;
+}
+
+.td-date {
+    color: #334155;
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+
+.td-date .date-sub {
+    font-size: 0.72rem;
+    color: #94a3b8;
+}
+
+/* Badges */
+.badge-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-status-pill .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.badge-status-pill.shipping {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge-status-pill.active-use {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* Action Dots */
+.btn-action-dots {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.btn-action-dots:hover {
+    color: #1e293b;
+    background-color: #f1f5f9;
+}
+
+/* Support / RF Card (dark navy card) */
+.rf-support-card {
+    background: linear-gradient(135deg, #0a1628 0%, #122040 50%, #1a3068 100%);
+    border-radius: 16px;
+    padding: 1.75rem;
+    color: #ffffff;
+}
+
+.rf-support-card .rf-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rf-support-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.rf-support-card p {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.rf-support-card .rf-hotline {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.rf-support-card .rf-hotline i {
+    color: #f97316;
+}
+
+.btn-rf-contact {
+    width: 100%;
+    padding: 0.7rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-rf-contact:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Info Notice (bottom of table) */
+.info-notice {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--tera-client-border);
+    font-size: 0.8rem;
+    color: var(--tera-client-muted);
+}
+
+.info-notice i {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.info-notice .btn-perpanjang {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--tera-client-border-dark);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--tera-client-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.info-notice .btn-perpanjang:hover {
+    background: var(--tera-client-bg);
+    border-color: var(--tera-client-primary);
+    color: var(--tera-client-primary);
+}
+
+/* =========================================
+   BUTTONS (global)
+   ========================================= */
+.btn-outline {
+    border: 1px solid var(--tera-client-border-dark);
+    background: #ffffff;
+    padding: 0.55rem 1.15rem;
+    border-radius: 8px;
+    color: var(--tera-client-text);
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.btn-outline:hover {
+    background-color: var(--tera-client-bg);
+    border-color: #cbd5e1;
+}
+
+.btn-outline .badge-count {
+    background: var(--tera-client-primary-light);
+    color: var(--tera-client-primary);
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--tera-client-primary);
+    color: white;
+    padding: 0.55rem 1.15rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    background-color: var(--tera-client-primary-hover);
+}
+
+/* =========================================
+   RIWAYAT PENYEWAAN PAGE
+   ========================================= */
+
+/* Stat Cards Row */
+.riwayat-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.riwayat-stat-card {
+    background: #ffffff;
+    border: 1px solid var(--tera-client-border);
+    border-radius: 14px;
+    padding: 1.25rem 1.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.stat-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--tera-client-muted);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--tera-client-text);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.stat-value-unit {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--tera-client-muted);
+    display: block;
+}
+
+.stat-sub {
+    font-size: 0.72rem;
+    color: var(--tera-client-muted);
+    margin-top: 0.35rem;
+}
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #16a34a;
+    margin-top: 0.35rem;
+}
+
+.stat-trend i { font-size: 0.8rem; }
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.stat-icon.blue { background: #eff6ff; color: #2563eb; }
+.stat-icon.green { background: #f0fdf4; color: #16a34a; }
+.stat-icon.slate { background: #f1f5f9; color: #475569; }
+
+/* Search & Filter Bar */
+.riwayat-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.riwayat-search-input-wrap {
+    position: relative;
+    flex: 1;
+}
+
+.riwayat-search-input-wrap i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.riwayat-search-input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid var(--tera-client-border-dark);
+    border-radius: 10px;
+    padding: 0 1rem 0 2.75rem;
+    font-size: 0.85rem;
+    outline: none;
+    font-family: inherit;
+    color: var(--tera-client-text);
+    transition: border-color 0.2s ease;
+}
+
+.riwayat-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.riwayat-search-input:focus {
+    border-color: var(--tera-client-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.riwayat-filter-pills {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.riwayat-filter-pill {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border: 1px solid var(--tera-client-border-dark);
+    background: #ffffff;
+    color: var(--tera-client-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.riwayat-filter-pill:hover {
+    background: var(--tera-client-bg);
+}
+
+.riwayat-filter-pill.active {
+    background: var(--tera-client-primary);
+    color: #ffffff;
+    border-color: var(--tera-client-primary);
+    font-weight: 600;
+}
+
+/* Table Pagination */
+.table-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--tera-client-border);
+}
+
+.table-pagination-info {
+    font-size: 0.82rem;
+    color: var(--tera-client-muted);
+}
+
+.table-pagination-nav {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.table-pagination-nav button {
+    border: 1px solid var(--tera-client-border-dark);
+    background: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    cursor: pointer;
+    color: var(--tera-client-text);
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.table-pagination-nav button:hover {
+    background: var(--tera-client-bg);
+}
+
+.table-pagination-nav button.active {
+    background: var(--tera-client-primary);
+    color: white;
+    border-color: var(--tera-client-primary);
+}
+
+/* Bottom Stats Cards for Riwayat */
+.riwayat-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 340px;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.riwayat-bottom-card {
+    background: #ffffff;
+    border: 1px solid var(--tera-client-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.riwayat-bottom-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    margin-bottom: 0.3rem;
+}
+
+.riwayat-bottom-card .card-subtitle {
+    font-size: 0.78rem;
+    color: var(--tera-client-muted);
+    margin-bottom: 1.25rem;
+}
+
+.card-badge-quarter {
+    display: inline-flex;
+    background: #eff6ff;
+    color: var(--tera-client-primary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+}
+
+/* Duration Bars */
+.duration-bar-item {
+    margin-bottom: 0.85rem;
+}
+
+.duration-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    margin-bottom: 0.3rem;
+}
+
+.duration-bar-label span:first-child {
+    font-weight: 500;
+    color: var(--tera-client-text);
+}
+
+.duration-bar-label span:last-child {
+    font-weight: 600;
+    color: var(--tera-client-muted);
+}
+
+.duration-bar {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.duration-bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+    background: var(--tera-client-primary);
+    transition: width 0.5s ease;
+}
+
+.card-footer-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--tera-client-border);
+}
+
+.card-footer-note i { font-size: 0.85rem; }
+
+/* ISR Card */
+.isr-donut-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.isr-donut {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(var(--tera-client-primary) 0% 100%, #e2e8f0 100% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.isr-donut-inner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.isr-donut-value {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--tera-client-primary);
+    line-height: 1;
+}
+
+.isr-donut-label {
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--tera-client-muted);
+    letter-spacing: 0.3px;
+}
+
+.isr-info h5 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    margin-bottom: 0.25rem;
+}
+
+.isr-info p {
+    font-size: 0.75rem;
+    color: var(--tera-client-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.btn-download-isr {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--tera-client-border-dark);
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--tera-client-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.btn-download-isr:hover {
+    background: var(--tera-client-primary-light);
+    border-color: var(--tera-client-primary);
+}
+
+/* =========================================
+   DAFTAR UNIT PAGE
+   ========================================= */
+.filters-wrap {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.15rem;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: var(--tera-client-text);
+    border: 1px solid var(--tera-client-border-dark);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    background: var(--tera-client-bg);
+}
+
+.filter-btn.active {
+    background: var(--tera-client-navy);
+    color: white;
+    border-color: var(--tera-client-navy);
+    font-weight: 600;
+}
+
+.unit-count-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--tera-client-muted);
+}
+
+.unit-count-info .count-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.unit-count-info .count-dot.green { background: #22c55e; }
+.unit-count-info .count-dot.blue { background: #2563eb; }
+
+.filters-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+}
+
+.units-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.unit-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--tera-client-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    transition: all 0.2s ease;
+}
+
+.unit-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+}
+
+.unit-card-image {
+    background: #e2e8f0;
+    height: 180px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.unit-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.unit-card-image .unit-id-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.badge-available {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0,0,0,0.45);
+    color: #ffffff;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.badge-available .avail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+.badge-rented {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0,0,0,0.45);
+    color: #fef08a;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.btn-heart {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.15s ease;
+}
+
+.btn-heart:hover {
+    color: #ef4444;
+    background: #ffffff;
+}
+
+.btn-heart.liked {
+    color: #ef4444;
+}
+
+.unit-card-body {
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.unit-category {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    color: var(--tera-client-primary);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.unit-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+}
+
+.unit-description {
+    font-size: 0.78rem;
+    color: var(--tera-client-muted);
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Tenor Selection */
+.tenor-section {
+    margin-bottom: 0.85rem;
+}
+
+.tenor-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--tera-client-muted);
+    margin-bottom: 0.4rem;
+}
+
+.tenor-label .tenor-selected {
+    font-weight: 700;
+    color: var(--tera-client-primary);
+}
+
+.tenor-pills {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.tenor-pill {
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border: 1px solid var(--tera-client-border-dark);
+    background: #ffffff;
+    color: var(--tera-client-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.tenor-pill:hover {
+    border-color: var(--tera-client-primary);
+    color: var(--tera-client-primary);
+}
+
+.tenor-pill.active {
+    background: var(--tera-client-primary);
+    color: #ffffff;
+    border-color: var(--tera-client-primary);
+}
+
+.unit-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.unit-price-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.unit-price-label {
+    font-size: 0.68rem;
+    color: var(--tera-client-muted);
+}
+
+.unit-price {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--tera-client-text);
+    letter-spacing: -0.3px;
+}
+
+.btn-sewa {
+    background: var(--tera-client-primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.15rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.btn-sewa:hover {
+    background: var(--tera-client-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-sewa.disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.btn-sewa.disabled:hover {
+    transform: none;
+}
+
+/* =========================================
+   AJUKAN PENYEWAAN PAGE
+   ========================================= */
+.ajukan-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+    align-items: start;
+}
+
+.form-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--tera-client-border);
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--tera-client-text);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--tera-client-border-dark);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    outline: none;
+    font-family: inherit;
+    color: var(--tera-client-text);
+    transition: border-color 0.15s ease;
+}
+
+.form-control:focus {
+    border-color: var(--tera-client-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-control-group {
+    display: flex;
+}
+
+.form-control-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-control-addon {
+    background: #f1f5f9;
+    border: 1px solid var(--tera-client-border-dark);
+    border-left: none;
+    padding: 0.7rem 1rem;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 0.82rem;
+    color: var(--tera-client-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-secondary {
+    justify-content: center;
+    padding: 0.85rem;
+    font-size: 0.92rem;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: var(--tera-client-text);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.sidebar-card {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid var(--tera-client-border);
+    margin-bottom: 1rem;
+}
+
+.sidebar-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+    margin-bottom: 1rem;
+}
+
+.info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.82rem;
+    color: var(--tera-client-muted);
+    line-height: 1.5;
+}
+
+.info-list i {
+    color: var(--tera-client-primary);
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.support-card {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.support-icon {
+    width: 40px;
+    height: 40px;
+    background: #dbeafe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tera-client-primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.support-text h5 {
+    font-size: 0.85rem;
+    color: var(--tera-client-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.support-text p {
+    font-size: 0.75rem;
+    color: var(--tera-client-muted);
+    margin: 0;
+}
+
+/* =========================================
+   DETAIL POPUP (for eye/view button)
+   ========================================= */
+.popup-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.popup-detail-item {
+    padding: 0.65rem;
+    background: var(--tera-client-bg);
+    border-radius: 8px;
+}
+
+.popup-detail-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--tera-client-muted);
+    margin-bottom: 0.2rem;
+}
+
+.popup-detail-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--tera-client-text);
+}
+
+/* =========================================
+   SEWA POPUP (for unit card)
+   ========================================= */
+.popup-unit-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--tera-client-border);
+}
+
+.popup-unit-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--tera-client-primary-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--tera-client-primary);
+}
+
+.popup-unit-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--tera-client-text);
+}
+
+.popup-unit-cat {
+    font-size: 0.75rem;
+    color: var(--tera-client-muted);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1200px) {
+    .riwayat-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .riwayat-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-split-section {
+        grid-template-columns: 1fr;
+    }
+    .units-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .topnav-links {
+        display: none;
+    }
+    .topnav-search {
+        display: none;
+    }
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    .quick-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .units-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ajukan-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .client-main-content {
+        padding: 1.25rem;
+    }
+    .quick-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .units-grid {
+        grid-template-columns: 1fr;
+    }
+    .riwayat-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .client-welcome-banner {
+        padding: 1.75rem 1.5rem;
+    }
+    .client-welcome-circle {
+        display: none;
+    }
+    .client-welcome-banner h1 {
+        font-size: 1.35rem;
+    }
+    .topnav-user-info {
+        display: none;
+    }
+    .topnav-user-chevron {
+        display: none;
+    }
+    .footer-inner {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    .filters-row {
+        flex-wrap: wrap;
+    }
+    .riwayat-search-bar {
+        flex-direction: column;
+    }
+    .riwayat-filter-pills {
+        flex-wrap: wrap;
+    }
+}
+
+/* Usage Summary Card (kept for compatibility) */
+.usage-summary-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--tera-client-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    padding: 1.5rem;
+}
+
+.usage-summary-title {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.usage-metric-number {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    letter-spacing: -1px;
+}
+
+.usage-metric-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.usage-metric-footer span {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.trend-indicator {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.usage-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.usage-progress-fill {
+    width: 68%;
+    height: 100%;
+    background-color: var(--tera-client-primary);
+    border-radius: 9999px;
+}

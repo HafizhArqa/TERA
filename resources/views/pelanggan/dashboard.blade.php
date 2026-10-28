@@ -1,180 +1,279 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Pelanggan - TERA PT Utama Telekomindo</title>
+@extends('layouts.pelanggan')
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+@section('title', 'Dashboard Pelanggan - TERA Client')
 
-    <!-- Bootstrap 5.3 CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+@section('content')
+    <!-- Welcome Banner -->
+    <div class="client-welcome-banner">
+        <div class="client-welcome-badge">
+            <span class="badge-dot"></span>
+            PORTAL PERANGKAT RADIO TELEKOMUNIKASI
+        </div>
+        <div class="client-welcome-circle"></div>
+        <h1>Selamat datang kembali, {{ auth()->check() ? (auth()->user()->nama ?? auth()->user()->username ?? 'Alex') : 'Alex' }}!</h1>
+        <p>Kelola sistem komunikasi radio, repeater, dan transceiver operasional Anda.
+           Anda memiliki <strong>3 perangkat aktif</strong> hari ini.</p>
+    </div>
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-        .navbar-tera-client {
-            background-color: #1e293b;
-        }
-        .banner-welcome {
-            background: linear-gradient(135deg, #1d68e1 0%, #3b82f6 100%);
-            border-radius: 16px;
-            color: white;
-            padding: 2.25rem;
-        }
-        .card-menu {
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            transition: all 0.2s ease;
-            background-color: #ffffff;
-            text-decoration: none;
-            color: inherit;
-        }
-        .card-menu:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border-color: #93c5fd;
-        }
-        .icon-circle {
-            width: 46px;
-            height: 46px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
-    </style>
-</head>
-<body>
-    <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-tera-client py-3 px-4 shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold text-white fs-4 d-flex align-items-center" href="#">
-                <i class="bi bi-broadcast-pin text-primary me-2"></i> TERA <span class="badge bg-success ms-2 fs-6">Pelanggan Tetap</span>
-            </a>
-            <div class="d-flex align-items-center ms-auto gap-2">
-                <div class="text-white text-end me-2 d-none d-sm-block">
-                    <div class="fw-semibold small">{{ auth()->user()->displayName }}</div>
-                    <div class="text-muted" style="font-size: 0.75rem;">{{ auth()->user()->email }}</div>
+    <!-- 3 Quick Action Cards -->
+    <div class="quick-cards-grid">
+        <!-- Card 1: Katalog Perangkat -->
+        <a href="{{ route('pelanggan.unit.index') }}" class="quick-card">
+            <div class="quick-card-icon-box blue">
+                <i class="bi bi-broadcast"></i>
+            </div>
+            <div class="quick-card-title">Katalog Perangkat</div>
+            <p class="quick-card-desc">Repeater SLR/RD988, Radio HT XiR, Barret SSB siap sewa.</p>
+            <span class="quick-card-link">Buka katalog <i class="bi bi-arrow-right"></i></span>
+        </a>
+
+        <!-- Card 2: Status Frekuensi & Kanal -->
+        <a href="{{ route('pelanggan.unit.index') }}" class="quick-card">
+            <div class="quick-card-icon-box slate">
+                <i class="bi bi-sliders"></i>
+            </div>
+            <div class="quick-card-title">Status Frekuensi & Kanal</div>
+            <p class="quick-card-desc">Cek alokasi frekuensi ISR, repeater duplexer, dan operasional.</p>
+            <span class="quick-card-link">Monitoring unit <i class="bi bi-arrow-right"></i></span>
+        </a>
+
+        <!-- Card 3: Riwayat Sewa & Tagihan -->
+        <a href="{{ route('pelanggan.penyewaan.history') }}" class="quick-card">
+            <div class="quick-card-icon-box slate">
+                <i class="bi bi-receipt-cutoff"></i>
+            </div>
+            <div class="quick-card-title">Riwayat Sewa & Tagihan</div>
+            <p class="quick-card-desc">Arsip kontrak sewa bulanan, invoice resmi, dan BAST perangkat.</p>
+            <span class="quick-card-link">Lihat riwayat <i class="bi bi-arrow-right"></i></span>
+        </a>
+    </div>
+
+    <!-- Bottom Section: Active Rentals Table & RF Support Card -->
+    <div class="dashboard-split-section">
+        <!-- Left Column: Active Rentals -->
+        <div class="rentals-section">
+            <div class="rentals-header">
+                <div class="rentals-header-left">
+                    <h3>Penyewaan Aktif</h3>
+                    <span class="rentals-badge-count">3 Unit Berjalan</span>
                 </div>
-                <!-- Profile Link -->
-                <a href="{{ route('profile.edit') }}" class="btn btn-outline-light btn-sm d-flex align-items-center">
-                    <i class="bi bi-person-gear me-1"></i> Profil
-                </a>
-                <!-- Logout Trigger Button -->
-                <button type="button" class="btn btn-outline-danger btn-sm d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                    <i class="bi bi-box-arrow-right me-1"></i> Logout
+                <a href="{{ route('pelanggan.penyewaan.history') }}">Lihat Semua <i class="bi bi-chevron-right"></i></a>
+            </div>
+
+            <div class="rentals-table-card">
+                <table class="rentals-table">
+                    <thead>
+                        <tr>
+                            <th>ID UNIT</th>
+                            <th>TIPE UNIT</th>
+                            <th>MULAI SEWA</th>
+                            <th>STATUS</th>
+                            <th style="text-align: center;">AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr>
+                            <td class="td-id-unit"><a href="#">#RP-5301</a></td>
+                            <td>
+                                <div class="unit-info-cell">
+                                    <div class="unit-icon-box" style="background: #eff6ff; color: #2563eb;">
+                                        <i class="bi bi-broadcast"></i>
+                                    </div>
+                                    <div>
+                                        <div class="unit-name-text">Repeater Motorola SLR 5300</div>
+                                        <div class="unit-sub-text">UHF 350-400 MHz • Base Site Tower Alpha</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-date">
+                                <div>01 Okt 2023</div>
+                                <div class="date-sub">Rp 2.000.000 / bln (Kontrak 6 Bln)</div>
+                            </td>
+                            <td>
+                                <span class="badge-status-pill" style="background: #dcfce7; color: #166534;">
+                                    <span class="status-dot" style="background: #22c55e;"></span> ON-AIR AKTIF
+                                </span>
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-action-dots" title="Detail" onclick="openDetailPopup('RP-5301', 'Repeater Motorola SLR 5300', 'UHF 350-400 MHz', '01 Okt 2023', 'ON-AIR AKTIF', 'Rp 2.000.000 / bln')">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="td-id-unit"><a href="#">#HT-6628</a></td>
+                            <td>
+                                <div class="unit-info-cell">
+                                    <div class="unit-icon-box" style="background: #f0fdf4; color: #16a34a;">
+                                        <i class="bi bi-phone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="unit-name-text">Motorola XiR P6620i</div>
+                                        <div class="unit-sub-text">UHF 350-400 MHz • Tim Lapangan Cikarang</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-date">
+                                <div>15 Okt 2023</div>
+                                <div class="date-sub">Rp 350.000 / bln (Durasi 30 Hari)</div>
+                            </td>
+                            <td>
+                                <span class="badge-status-pill" style="background: #dbeafe; color: #1e40af;">
+                                    <span class="status-dot" style="background: #2563eb;"></span> DIGUNAKAN
+                                </span>
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-action-dots" title="Detail" onclick="openDetailPopup('HT-6628', 'Motorola XiR P6620i', 'UHF 350-400 MHz', '15 Okt 2023', 'DIGUNAKAN', 'Rp 350.000 / bln')">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td class="td-id-unit"><a href="#">#SSB-4050</a></td>
+                            <td>
+                                <div class="unit-info-cell">
+                                    <div class="unit-icon-box" style="background: #eff6ff; color: #2563eb;">
+                                        <i class="bi bi-wifi"></i>
+                                    </div>
+                                    <div>
+                                        <div class="unit-name-text">Barret 4050 HF SSB</div>
+                                        <div class="unit-sub-text">HF High Frequency • Stasiun Jarak Jauh</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-date">
+                                <div>10 Okt 2023</div>
+                                <div class="date-sub">Rp 30.000.000 / bln (Enterprise SLA)</div>
+                            </td>
+                            <td>
+                                <span class="badge-status-pill" style="background: #dcfce7; color: #166534;">
+                                    <span class="status-dot" style="background: #22c55e;"></span> ON-AIR AKTIF
+                                </span>
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn-action-dots" title="Detail" onclick="openDetailPopup('SSB-4050', 'Barret 4050 HF SSB', 'HF High Frequency', '10 Okt 2023', 'ON-AIR AKTIF', 'Rp 30.000.000 / bln')">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Bottom Notice -->
+                <div class="info-notice">
+                    <i class="bi bi-info-circle"></i>
+                    <span><strong>Jadwal Perpanjangan Frekuensi Radio HT</strong> — Unit Motorola XiR P6620i (#HT-6628) jatuh tempo 14 Nov 2023</span>
+                    <button type="button" class="btn-perpanjang" onclick="openPerpanjangPopup()">Perpanjang Sewa</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: RF Support Card -->
+        <div class="rf-support-card">
+            <div class="rf-icon">
+                <i class="bi bi-headset"></i>
+            </div>
+            <h4>Dukungan RF 24/7</h4>
+            <p>Tim teknis radio siap membantu monitoring & troubleshooting frekuensi operasional Anda.</p>
+            <div class="rf-hotline">
+                <i class="bi bi-telephone-fill"></i>
+                Hotline RF Support: +62 21 8890 1200
+            </div>
+            <button type="button" class="btn-rf-contact" onclick="openPopup('popupBantuan')">Hubungi Tim RF</button>
+        </div>
+    </div>
+
+    <!-- Detail Popup -->
+    <div class="popup-modal" id="popupDetail">
+        <div class="popup-header">
+            <h3><i class="bi bi-eye"></i> Detail Unit</h3>
+            <button class="popup-close" onclick="closePopup('popupDetail')">&times;</button>
+        </div>
+        <div class="popup-body">
+            <div class="popup-unit-header">
+                <div class="popup-unit-icon"><i class="bi bi-broadcast"></i></div>
+                <div>
+                    <div class="popup-unit-name" id="detailUnitName">-</div>
+                    <div class="popup-unit-cat" id="detailUnitFreq">-</div>
+                </div>
+            </div>
+            <div class="popup-detail-grid">
+                <div class="popup-detail-item">
+                    <div class="popup-detail-label">ID Unit</div>
+                    <div class="popup-detail-value" id="detailUnitId">-</div>
+                </div>
+                <div class="popup-detail-item">
+                    <div class="popup-detail-label">Status</div>
+                    <div class="popup-detail-value" id="detailUnitStatus">-</div>
+                </div>
+                <div class="popup-detail-item">
+                    <div class="popup-detail-label">Mulai Sewa</div>
+                    <div class="popup-detail-value" id="detailUnitDate">-</div>
+                </div>
+                <div class="popup-detail-item">
+                    <div class="popup-detail-label">Biaya</div>
+                    <div class="popup-detail-value" id="detailUnitCost">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Perpanjang Popup -->
+    <div class="popup-modal" id="popupPerpanjang">
+        <div class="popup-header">
+            <h3><i class="bi bi-arrow-repeat"></i> Perpanjang Sewa</h3>
+            <button class="popup-close" onclick="closePopup('popupPerpanjang')">&times;</button>
+        </div>
+        <div class="popup-body">
+            <div class="popup-unit-header">
+                <div class="popup-unit-icon"><i class="bi bi-phone"></i></div>
+                <div>
+                    <div class="popup-unit-name">Motorola XiR P6620i</div>
+                    <div class="popup-unit-cat">ID: #HT-6628 • UHF 350-400 MHz</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Durasi Perpanjangan</label>
+                <select class="form-control">
+                    <option value="1">1 Bulan</option>
+                    <option value="3">3 Bulan</option>
+                    <option value="6" selected>6 Bulan</option>
+                    <option value="12">12 Bulan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Catatan Tambahan</label>
+                <textarea class="form-control" placeholder="Tambahkan catatan untuk admin..."></textarea>
+            </div>
+            <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem;">
+                <button type="button" class="btn-primary" style="flex: 1; justify-content: center;" onclick="alert('Permintaan perpanjangan berhasil dikirim!'); closePopup('popupPerpanjang');">
+                    <i class="bi bi-send"></i> Kirim Permintaan
                 </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container py-4">
-        <!-- Welcome Banner  -->
-        <div class="banner-welcome mb-4 shadow-sm">
-            <h2 class="fw-bold mb-2">Selamat datang kembali, {{ auth()->user()->displayName }}!</h2>
-            <p class="mb-0 opacity-75">Kelola penyewaan unit telekomunikasi Anda dengan mudah. Anda dapat melihat unit tersedia dan riwayat transaksi.</p>
-        </div>
-
-        <!-- Quick Access Menus -->
-        <div class="row g-3 mb-4">
-            <div class="col-6 col-md-3">
-                <div class="card card-menu p-3 h-100">
-                    <div class="icon-circle bg-primary-subtle text-primary">
-                        <i class="bi bi-grid-fill"></i>
-                    </div>
-                    <h6 class="fw-bold mb-1">Lihat Daftar Unit</h6>
-                    <small class="text-muted">Jelajahi armada telekomunikasi yang siap sewa</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card card-menu p-3 h-100">
-                    <div class="icon-circle bg-success-subtle text-success">
-                        <i class="bi bi-plus-circle-fill"></i>
-                    </div>
-                    <h6 class="fw-bold mb-1">Ajukan Penyewaan</h6>
-                    <small class="text-muted">Mulai permohonan sewa perangkat baru</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card card-menu p-3 h-100">
-                    <div class="icon-circle bg-warning-subtle text-warning">
-                        <i class="bi bi-hourglass-split"></i>
-                    </div>
-                    <h6 class="fw-bold mb-1">Status Penyewaan</h6>
-                    <small class="text-muted">Pantau unit aktif yang sedang digunakan</small>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="card card-menu p-3 h-100">
-                    <div class="icon-circle bg-info-subtle text-info">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
-                    <h6 class="fw-bold mb-1">Riwayat Penyewaan</h6>
-                    <small class="text-muted">Lihat histori transaksi dan pengembalian</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- User Information Card -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold mb-0">Detail Akun Pelanggan</h5>
-                <a href="{{ route('profile.edit') }}" class="btn btn-outline-success btn-sm">
-                    <i class="bi bi-pencil-square me-1"></i> Edit Profil
-                </a>
-            </div>
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <small class="text-muted d-block">Nama Lengkap</small>
-                    <span class="fw-semibold">{{ auth()->user()->displayName }}</span>
-                </div>
-                <div class="col-md-4">
-                    <small class="text-muted d-block">Username / ID</small>
-                    <span class="fw-semibold">{{ auth()->user()->username }}</span>
-                </div>
-                <div class="col-md-4">
-                    <small class="text-muted d-block">Email Terdaftar</small>
-                    <span class="fw-semibold">{{ auth()->user()->email }}</span>
-                </div>
+                <button type="button" class="btn-secondary" style="flex: 1; justify-content: center;" onclick="closePopup('popupPerpanjang')">Batal</button>
             </div>
         </div>
     </div>
+@endsection
 
-    <!-- Modal Konfirmasi Logout -->
-    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow">
-                <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold" id="logoutModalLabel">
-                        <i class="bi bi-exclamation-circle text-warning me-2"></i> Konfirmasi Logout
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Batal"></button>
-                </div>
-                <div class="modal-body text-secondary py-3">
-                    Apakah Anda yakin ingin keluar dari sistem TERA? Sesi aktif Anda akan diakhiri.
-                </div>
-                <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Batal</button>
-                    <form method="POST" action="{{ route('logout') }}" class="d-inline">
-                        @csrf
-                        <button type="submit" class="btn btn-danger px-3">Ya / Keluar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+@push('scripts')
+<script>
+    function openDetailPopup(id, name, freq, date, status, cost) {
+        document.getElementById('detailUnitId').textContent = '#' + id;
+        document.getElementById('detailUnitName').textContent = name;
+        document.getElementById('detailUnitFreq').textContent = freq;
+        document.getElementById('detailUnitDate').textContent = date;
+        document.getElementById('detailUnitStatus').textContent = status;
+        document.getElementById('detailUnitCost').textContent = cost;
+        openPopup('popupDetail');
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    function openPerpanjangPopup() {
+        openPopup('popupPerpanjang');
+    }
+</script>
+@endpush

@@ -43,6 +43,23 @@ Route::middleware(['auth', 'role:pelanggan'])->group(function () {
     Route::get('/pelanggan/dashboard', function () {
         return view('pelanggan.dashboard');
     })->name('pelanggan.dashboard');
+
+    Route::get('/pelanggan/unit', function () {
+        return view('pelanggan.unit');
+    })->name('pelanggan.unit.index');
+
+    Route::get('/pelanggan/penyewaan/create', function () {
+        return view('pelanggan.ajukan_penyewaan');
+    })->name('pelanggan.penyewaan.create');
+
+    Route::get('/pelanggan/penyewaan/history', function () {
+        return view('pelanggan.riwayat');
+    })->name('pelanggan.penyewaan.history');
+
+    // Friendly URL redirects
+    Route::get('/pelanggan/ajukan', fn() => redirect()->route('pelanggan.penyewaan.create'));
+    Route::get('/pelanggan/riwayat', fn() => redirect()->route('pelanggan.penyewaan.history'));
+    Route::get('/pelanggan/status', fn() => redirect()->route('pelanggan.penyewaan.history'));
 });
 
 Route::middleware('auth')->group(function () {

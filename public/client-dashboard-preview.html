@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERA Client - Management Portal</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Client Dashboard Custom Stylesheet -->
+    <link rel="stylesheet" href="css/client/dashboard.css">
+</head>
+<body>
+    <div class="client-app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="client-sidebar" id="clientSidebar">
+            <div class="client-brand">
+                <h3>TERA Client</h3>
+                <p>Management Portal</p>
+            </div>
+
+            <nav class="client-nav">
+                <!-- Dashboard (Active) -->
+                <a href="/pelanggan/dashboard" class="client-nav-link active">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="2" width="6.5" height="6.5" rx="1.5"/>
+                        <rect x="11.5" y="2" width="6.5" height="6.5" rx="1.5"/>
+                        <rect x="2" y="11.5" width="6.5" height="6.5" rx="1.5"/>
+                        <rect x="11.5" y="11.5" width="6.5" height="6.5" rx="1.5"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Daftar Unit -->
+                <a href="/pelanggan/unit" class="client-nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Daftar Unit</span>
+                </a>
+
+                <!-- Ajukan Penyewaan -->
+                <a href="/pelanggan/penyewaan/create" class="client-nav-link">
+                    <i class="bi bi-plus-circle"></i>
+                    <span>Ajukan Penyewaan</span>
+                </a>
+
+                <!-- Status / Riwayat Penyewaan -->
+                <a href="/pelanggan/penyewaan/history" class="client-nav-link">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Riwayat Penyewaan</span>
+                </a>
+            </nav>
+
+            <div class="client-sidebar-footer">
+                <button type="button" class="client-logout-btn">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="client-main">
+            <!-- Topbar Header -->
+            <header class="client-topbar">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button type="button" class="mobile-sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="topbar-search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="topbar-search-input" placeholder="Cari data, transaksi, atau unit...">
+                    </div>
+                </div>
+
+                <div class="topbar-right-actions">
+                    <button type="button" class="topbar-action-icon" title="Notifikasi">
+                        <i class="bi bi-bell"></i>
+                    </button>
+                    <button type="button" class="topbar-action-icon" title="Bantuan">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
+                    <button type="button" class="topbar-action-icon" title="Pengaturan">
+                        <i class="bi bi-gear"></i>
+                    </button>
+                    <div class="client-user-badge">
+                        <span class="client-user-name">Client</span>
+                        <div class="client-user-avatar"></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Body -->
+            <div class="client-content-body">
+                <!-- Welcome Banner -->
+                <div class="client-welcome-banner">
+                    <div class="client-welcome-circle"></div>
+                    <h1>Selamat datang kembali, Alex!</h1>
+                    <p>Kelola penyewaan unit logistik Anda dengan mudah. Anda memiliki 2 penyewaan aktif hari ini.</p>
+                </div>
+
+                <!-- 4 Quick Action Cards -->
+                <div class="quick-cards-grid">
+                    <!-- Card 1: Lihat Daftar Unit -->
+                    <a href="/pelanggan/unit" class="quick-card">
+                        <div class="quick-card-icon-box blue">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="quick-card-title">Lihat Daftar Unit</div>
+                        <p class="quick-card-desc">Eksplorasi armada terbaru kami yang siap disewa.</p>
+                    </a>
+
+                    <!-- Card 2: Ajukan Penyewaan -->
+                    <a href="/pelanggan/penyewaan/create" class="quick-card">
+                        <div class="quick-card-icon-box orange">
+                            <i class="bi bi-plus-square"></i>
+                        </div>
+                        <div class="quick-card-title">Ajukan Penyewaan</div>
+                        <p class="quick-card-desc">Mulai pesanan baru untuk kebutuhan logistik Anda.</p>
+                    </a>
+
+                    <!-- Card 3: Status Penyewaan -->
+                    <a href="/pelanggan/penyewaan/history" class="quick-card">
+                        <div class="quick-card-icon-box slate">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <div class="quick-card-title">Status Penyewaan</div>
+                        <p class="quick-card-desc">Lacak unit yang sedang Anda gunakan saat ini.</p>
+                    </a>
+
+                    <!-- Card 4: Riwayat Penyewaan -->
+                    <a href="/pelanggan/penyewaan/history" class="quick-card">
+                        <div class="quick-card-icon-box slate">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="quick-card-title">Riwayat Penyewaan</div>
+                        <p class="quick-card-desc">Lihat data transaksi dan unit di masa lalu.</p>
+                    </a>
+                </div>
+
+                <!-- Bottom Section: Active Rentals Table & Usage Summary Card -->
+                <div class="dashboard-split-section">
+                    <!-- Left Column: Active Rentals -->
+                    <div class="rentals-section">
+                        <div class="rentals-header">
+                            <h3>Penyewaan Aktif</h3>
+                            <a href="/pelanggan/penyewaan/history">Lihat Semua</a>
+                        </div>
+
+                        <div class="rentals-table-card">
+                            <table class="rentals-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID UNIT</th>
+                                        <th>TIPE UNIT</th>
+                                        <th>MULAI SEWA</th>
+                                        <th>STATUS</th>
+                                        <th style="text-align: center;">AKSI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Row 1: TR-4022 -->
+                                    <tr>
+                                        <td class="td-id-unit">#TR-4022</td>
+                                        <td>
+                                            <div class="unit-info-cell">
+                                                <div class="unit-icon-box">
+                                                    <i class="bi bi-truck"></i>
+                                                </div>
+                                                <span class="unit-name-text">Dry Container 20'</span>
+                                            </div>
+                                        </td>
+                                        <td class="td-date">12 Okt 2023</td>
+                                        <td>
+                                            <span class="badge-status-pill shipping">
+                                                <span>DALAM</span>
+                                                <span>PENGIRIMAN</span>
+                                            </span>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <button type="button" class="btn-action-dots" title="Aksi">
+                                                <i class="bi bi-three-dots"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Row 2: TR-4058 -->
+                                    <tr>
+                                        <td class="td-id-unit">#TR-4058</td>
+                                        <td>
+                                            <div class="unit-info-cell">
+                                                <div class="unit-icon-box">
+                                                    <i class="bi bi-snow"></i>
+                                                </div>
+                                                <span class="unit-name-text">Refrigerated Truck</span>
+                                            </div>
+                                        </td>
+                                        <td class="td-date">15 Okt 2023</td>
+                                        <td>
+                                            <span class="badge-status-pill active-use">
+                                                <span>DIGUNAKAN</span>
+                                            </span>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <button type="button" class="btn-action-dots" title="Aksi">
+                                                <i class="bi bi-three-dots"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Usage Summary -->
+                    <div class="usage-summary-card">
+                        <div class="usage-summary-title">RINGKASAN PENGGUNAAN</div>
+                        <div class="usage-metric-number">12</div>
+                        <div class="usage-metric-footer">
+                            <span>Total Sewa Bulan Ini</span>
+                            <div class="trend-indicator">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span>~15%</span>
+                            </div>
+                        </div>
+                        <div class="usage-progress-bar">
+                            <div class="usage-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle mobile sidebar
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const clientSidebar = document.getElementById('clientSidebar');
+        if (sidebarToggle && clientSidebar) {
+            sidebarToggle.addEventListener('click', () => {
+                clientSidebar.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>
